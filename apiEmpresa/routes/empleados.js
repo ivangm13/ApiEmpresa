@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const moment = require('moment');
-const {check,validationResult} = require('express-validator');
+const { check, validationResult } = require('express-validator');
 
 const Empleado = require('../models/empleado');
 
@@ -45,25 +45,30 @@ router.get('/borrar/:idEmpleado', async (req, res) => {
 // Peticiones al servidor
 
 //Peticion al hacer submit en el formulario de creacion de empleado
-router.post('/crear',[
-check('nombre').notEmpty()
+router.post('/crear', [
+    check('nombre').notEmpty(),
+    check('dni').length(9),
+    check('sexo').notEmpty(),
+    check('fecha_nacimiento').notEmpty(),
+    check('salario').notEmpty(),
+    check('cargo').notEmpty(),
+    check('departamento').notEmpty()
 
-] ,async (req, res) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            res.redirect('/empleados/crear');
-            
-        }
-        try {
-            const result = await Empleado.crear(req.body)
-            res.redirect('/empleados');
+], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        res.redirect('/empleados/crear');
+    }
+    try {
+        const result = await Empleado.crear(req.body)
+        res.redirect('/empleados');
 
-        } catch (err) {
-            res.send(err);
-        }
-    
-        
-    
+    } catch (err) {
+        res.send(err);
+    }
+
+
+
 
 
 })
