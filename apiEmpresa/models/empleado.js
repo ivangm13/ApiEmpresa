@@ -39,10 +39,22 @@ const deleteById = (pIdEmpleado) => {
         });
     });
 } 
+const editarById = (pIdEmpleado, { nombre, dni, sexo, fecha_nacimiento, salario, cargo, departamento}) => {
+    return new Promise((resolve, reject) => {
+        db.query(
+            'update empleados set nombre =?, dni = ?, sexo = ?, fecha_nacimiento = ?, salario = ?, cargo = ?,fk_departamento = ? where id = ?',
+            [nombre, dni, sexo, fecha_nacimiento, salario, cargo, departamento, pIdEmpleado],
+            (err, result) => {
+                if (err) reject(err);
+                resolve(result);
+            });
+    });
+}
 module.exports = {
     getAll,
      crear,
     getById,
-    deleteById 
+    deleteById,
+    editarById
 
 }

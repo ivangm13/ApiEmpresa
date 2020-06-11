@@ -6,7 +6,17 @@ const getAll = () => {
         });
     });
 }
-
+const crear = ({ nombre, ciudad}) => {
+    return new Promise((resolve, reject) => {
+        db.query('insert into departamentos (nombre,ciudad) values (?,?)',
+            [nombre, ciudad],
+            (err, result) => {
+                if (err) reject(err);
+                resolve(result);
+            })
+    });
+}
 module.exports = {
-    getAll
+    getAll,
+    crear
 }

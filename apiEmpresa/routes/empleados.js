@@ -68,10 +68,14 @@ router.post('/crear', [
     } catch (err) {
         res.send(err);
     }
-
-
-
-
-
 })
+
+router.post('/editar', async (req, res) => {
+    try {
+        const result = await Empleado.editarById(req.body.idEmpleado, req.body);
+        res.redirect('/empleados');
+    } catch (err) {
+        res.send(err)
+    }
+});
 module.exports = router;

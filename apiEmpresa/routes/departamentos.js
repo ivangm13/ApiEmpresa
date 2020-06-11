@@ -11,5 +11,19 @@ router.get('/', (req, res) => {
     })
     
 })
+router.get('/crear',(req,res)=>{
+    res.render('departamentos/formCrear')
+})
 
+
+//Peticiones
+
+router.post('/crear', async (req, res) => {
+    try {
+        const result = await Departamento.crear(req.body)
+        res.redirect('/departamentos');
+    } catch (err) {
+        res.send(err);
+    }
+})
 module.exports = router;
