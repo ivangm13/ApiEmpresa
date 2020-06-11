@@ -22,7 +22,9 @@ block content
                     td=empleado.fecha_incorporacion
                     td=empleado.salario
                     td=empleado.cargo
-                    td=empleado.jefe
+                    td=empleado.jefe_id
                     td 
-                        a.btn.btn-info.btn-sm(href="/empleados/"+empleado.id) Detalle
+                        a.btn.btn-info.btn-sm(href="/empleados/editar/"+empleado.id) Editar
                         a.btn.btn-danger.btn-sm.ml-1(href="/empleados/borrar/"+empleado.id) Eliminar
+
+    a.btn.btn-outline-success(href="/empleados/crear") Nuevo empleado
