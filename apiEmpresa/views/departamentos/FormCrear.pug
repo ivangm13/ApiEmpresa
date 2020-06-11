@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    h2.mt-5 Crea un nuevo Departamento
+    form(action="/departamentos/crear", method="POST")
+        .form-group
+            label Nombre
+            input.form-control(type="text", name="nombre")
+        .form-group
+            label Ciudad 
+            input.form-control(type="text", name="ciudad")
+        input.btn.btn-info.btn-block(type="submit", value="Enviar")

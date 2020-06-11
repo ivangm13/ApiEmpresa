@@ -47,7 +47,7 @@ router.get('/borrar/:idEmpleado', async (req, res) => {
 //Peticion al hacer submit en el formulario de creacion de empleado
 router.post('/crear', [
     check('nombre').notEmpty(),
-    check('dni').length(9),
+    check('dni').isLength(9),
     check('sexo').notEmpty(),
     check('fecha_nacimiento').notEmpty(),
     check('salario').notEmpty(),
