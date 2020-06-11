@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+    h2.mt-5 Crea un nuevo Empleado
+    form(action="/empleados/crear", method="POST")
+        .form-group
+            label Nombre
+            input.form-control(type="text", name="nombre")
+        .form-group
+            label DNI <span id="error" style="color:white;background-color:red;display:none">DNI mal introducido</span>
+            input.form-control(type="text", name="dni", placeholder="00000000X")
+        .form-group
+            label Sexo
+            select.form-control(name="sexo")
+                option(value="M") Masculino
+                option(value="F") Femenino
+        .form-group
+            label Fecha de Nacimiento
+            input.form-control(type="text", name="fecha_nacimiento", placeholder="YYYY/MM/DD")
+        .form-group
+            label Salario
+            input.form-control(type="number", name="salario")
+        .form-group
+            label Cargo
+            input.form-control(type="text", name="cargo")
+        .form-group 
+            label Departamento
+            select.form-control( name="departamento")
+                option(value=1) Dirección
+                option(value=3) Financiero  
+                option(value=4) Producto
+                option(value=5) Administración
+        input.btn.btn-info.btn-block(type="submit", value="Enviar")
