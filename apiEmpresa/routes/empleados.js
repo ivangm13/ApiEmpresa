@@ -4,6 +4,7 @@ const { check, validationResult } = require('express-validator');
 
 const Empleado = require('../models/empleado');
 
+
 router.get('/', async (req, res) => {
     try {
         const rows = await Empleado.getAll();
@@ -39,6 +40,7 @@ router.get('/borrar/:idEmpleado', async (req, res) => {
             res.send(err);
         });
 })
+
 
 
 

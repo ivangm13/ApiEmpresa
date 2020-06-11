@@ -9,6 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 const empleadosRouter = require('./routes/empleados');
+const departamentosRouter = require('./routes/departamentos');
 
 const apiRouter = require('./routes/api');
 require('dotenv').config();
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/empleados', empleadosRouter);
+app.use('/departamentos',departamentosRouter);
 app.use('/users', usersRouter);
 app.use('/api', apiRouter);
 
