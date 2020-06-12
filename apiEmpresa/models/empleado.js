@@ -37,7 +37,7 @@ const deleteById = (pIdEmpleado) => {
             if (err) reject(err);
             resolve(result);
         });
-    });
+    }); 
 } 
 const editarById = (pIdEmpleado, { nombre, dni, sexo, fecha_nacimiento, salario, cargo, fk_departamento, jefe_id}) => {
     return new Promise((resolve, reject) => {
