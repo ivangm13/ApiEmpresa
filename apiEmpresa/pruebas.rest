@@ -2,11 +2,13 @@
 
 //Peticiones de la ruta /api/empleados
 
+//Recuperar todos los empleados
 GET http://localhost:3000/api/empleados
 
 
 ###
 
+//Crear un nuevo empleado
 POST http://localhost:3000/api/empleados
 Content-Type: application/json
 
@@ -23,12 +25,12 @@ Content-Type: application/json
 
 ###
 
-//Prueba de delete con id a elegir
+//Eliminar empleado elegido por id
 DELETE http://localhost:3000/api/empleados/28
 
 ###
 
-//Actualizar usuario del id elegido
+//Actualizar empleado elegido por id
 PUT http://localhost:3000/api/empleados/1
 Content-Type: application/json
 
@@ -47,5 +49,33 @@ Content-Type: application/json
 ###
 //Peticiones de la ruta /api/departamentos
 
+//Recuperar todos los departamentos
 GET http://localhost:3000/api/departamentos
+
+###
+
+//Eliminar departamento elegido por id
+DELETE http://localhost:3000/api/departamentos/7
+
+###
+
+//Crear departamento
+POST http://localhost:3000/api/departamentos/
+Content-Type: application/json
+
+{
+    "nombre": "Recursos humanos",
+    "ciudad": "Málaga"
+}
+
+###
+
+//Editar departamento elegido por id
+PUT http://localhost:3000/api/departamentos/3
+Content-Type: application/json
+
+{
+    "nombre": "Finanzas",
+    "ciudad": "Madrid"
+}
 
