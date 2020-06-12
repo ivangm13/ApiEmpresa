@@ -26,4 +26,5 @@ block content
         .form-group 
             label Departamento
             input.form-control(type="text", name="departamento",value=empleado.fk_departamento)
+        input(type="hidden" name="idEmpleado" value=empleado.id)
         input.btn.btn-info.btn-block(type="submit", value="Enviar")
