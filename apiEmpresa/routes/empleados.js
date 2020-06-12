@@ -9,8 +9,8 @@ router.get('/', async (req, res) => {
     try {
         const rows = await Empleado.getAll();
         for (row of rows) {
-            row.fecha_nacimiento = moment(row.fecha_nacimiento).format('DD/MM/YYYY');
-            row.fecha_incorporacion = moment(row.fecha_incorporacion).format('DD/MM/YYYY');
+            row.fecha_nacimiento = moment(row.fecha_nacimiento).format('YYYY/MM/DD');
+            row.fecha_incorporacion = moment(row.fecha_incorporacion).format('YYYY/MM/DD');
         }
         res.render('empleados/index', { empleados: rows });
     } catch (err) {
@@ -25,7 +25,7 @@ router.get('/crear', (req, res) => {
 router.get('/editar/:idEmpleado', async (req, res) => {
     try {
         const empleado = await Empleado.getById(req.params.idEmpleado);
-        empleado.fecha_nacimiento = moment(empleado.fecha_nacimiento).format('DD/MM/YYYY');
+        empleado.fecha_nacimiento = moment(empleado.fecha_nacimiento).format('YYYY/MM/DD');
         res.render('empleados/formEditar', { empleado });
     } catch (err) {
         res.send(err);
@@ -64,6 +64,7 @@ router.post('/crear', [
     try {
         const result = await Empleado.crear(req.body)
         res.redirect('/empleados');
+        
 
     } catch (err) {
         res.send(err);

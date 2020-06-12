@@ -1,1 +1,18 @@
-GET http://localhost:3000/empleados
+GET http://localhost:3000/api/empleados
+
+
+###
+
+POST http://localhost:3000/api/empleados
+Content-Type: application/json
+
+{
+    "nombre": "Ana",
+    "dni": "123456789A",
+    "sexo": "F",
+    "fecha_nacimiento": "1985-05-11",
+    "salario": 3500,
+    "cargo": "mantenimiento",
+    "departamento": 1,
+    "jefe_id": 1
+}

@@ -10,11 +10,11 @@ const getAll = () => {
     });
 }
 
- const crear = ({ nombre, dni, sexo, fecha_nacimiento, fecha_incorporación, salario, cargo, departamento, jefe }) => {
+ const crear = ({ nombre, dni, sexo, fecha_nacimiento, fecha_incorporación=0, salario, cargo, departamento, jefe_id }) => {
     return new Promise((resolve, reject) => {
         
         db.query('insert into empleados (nombre,dni,sexo,fecha_nacimiento,fecha_incorporacion,salario,cargo,fk_departamento,jefe_id) values (?,?,?,?,?,?,?,?,?)',
-            [nombre, dni, sexo, fecha_nacimiento, new Date(), salario, cargo, departamento, jefe],
+            [nombre, dni, sexo, fecha_nacimiento, new Date(), salario, cargo, departamento, jefe_id],
             (err, result) => {
                 if (err) reject(err);
                 resolve(result);
@@ -40,10 +40,11 @@ const deleteById = (pIdEmpleado) => {
     });
 } 
 const editarById = (pIdEmpleado, { nombre, dni, sexo, fecha_nacimiento, salario, cargo, departamento}) => {
+    console.log(pIdEmpleado)
     return new Promise((resolve, reject) => {
         db.query(
             'update empleados set nombre =?, dni = ?, sexo = ?, fecha_nacimiento = ?, salario = ?, cargo = ?,fk_departamento = ? where id = ?',
-            [nombre, dni, sexo, fecha_nacimiento, salario, cargo, departamento, pIdEmpleado],
+            [nombre, dni, sexo, fecha_nacimiento, salario, cargo, departamento,  pIdEmpleado],
             (err, result) => {
                 if (err) reject(err);
                 resolve(result);
