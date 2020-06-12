@@ -5,8 +5,9 @@ block content
     form(action="/departamentos/editar", method="POST")
         .form-group
             label Nombre
-            input.form-control(type="text", name="nombre")
+            input.form-control(type="text", name="nombre",value=departamento.nombre)
         .form-group
             label Ciudad 
-            input.form-control(type="text", name="ciudad")
-        input.btn.btn-info.btn-block(type="submit", value="Enviar")
+            input.form-control(type="text", name="ciudad",value=departamento.ciudad)
+        input(type="hidden" name="idDepartamento" value=departamento.id)
+        input.btn.btn-info.btn-block(type="submit", value="Enviar") 
