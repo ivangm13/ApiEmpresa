@@ -1,3 +1,7 @@
+//Pruebas de peticiones al servidor
+
+//Peticiones de la ruta /api/empleados
+
 GET http://localhost:3000/api/empleados
 
 
@@ -8,11 +12,40 @@ Content-Type: application/json
 
 {
     "nombre": "Ana",
-    "dni": "123456789A",
+    "dni": "12345678A",
     "sexo": "F",
     "fecha_nacimiento": "1985-05-11",
     "salario": 3500,
     "cargo": "mantenimiento",
     "departamento": 1,
-    "jefe_id": 1
+    "jefe_id": null
 }
+
+###
+
+//Prueba de delete con id a elegir
+DELETE http://localhost:3000/api/empleados/28
+
+###
+
+//Actualizar usuario del id elegido
+PUT http://localhost:3000/api/empleados/1
+Content-Type: application/json
+
+{
+    
+    "nombre": "Ivan",
+    "dni": "03145245H",
+    "sexo": "M",
+    "fecha_nacimiento": "1993-11-13",
+    "fecha_incorporacion": "2020-06-30",
+    "salario": 7000,
+    "cargo": "desarrollador",
+    "fk_departamento": 1,
+    "jefe_id": 4
+}
+###
+//Peticiones de la ruta /api/departamentos
+
+GET http://localhost:3000/api/departamentos
+

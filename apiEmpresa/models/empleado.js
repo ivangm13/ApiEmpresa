@@ -39,12 +39,11 @@ const deleteById = (pIdEmpleado) => {
         });
     });
 } 
-const editarById = (pIdEmpleado, { nombre, dni, sexo, fecha_nacimiento, salario, cargo, departamento}) => {
-    console.log(pIdEmpleado)
+const editarById = (pIdEmpleado, { nombre, dni, sexo, fecha_nacimiento, salario, cargo, fk_departamento, jefe_id}) => {
     return new Promise((resolve, reject) => {
         db.query(
-            'update empleados set nombre =?, dni = ?, sexo = ?, fecha_nacimiento = ?, salario = ?, cargo = ?,fk_departamento = ? where id = ?',
-            [nombre, dni, sexo, fecha_nacimiento, salario, cargo, departamento,  pIdEmpleado],
+            'update empleados set nombre =?, dni = ?, sexo = ?, fecha_nacimiento = ?, salario = ?, cargo = ?,fk_departamento = ?, jefe_id = ? where id = ?',
+            [nombre, dni, sexo, fecha_nacimiento, salario, cargo, fk_departamento,jefe_id,  pIdEmpleado],
             (err, result) => {
                 if (err) reject(err);
                 resolve(result);
