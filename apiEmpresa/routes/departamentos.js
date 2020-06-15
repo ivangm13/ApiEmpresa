@@ -9,11 +9,12 @@ router.get('/', (req, res) => {
         .catch(err => {
             res.send(err)
         })
-
 })
+
 router.get('/crear', (req, res) => {
     res.render('departamentos/formCrear')
 })
+
 router.get('/borrar/:idDepartamento', async (req, res) => {
     Departamento.eliminarById(req.params.idDepartamento)
         .then(result => {

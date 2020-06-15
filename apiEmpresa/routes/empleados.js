@@ -49,7 +49,7 @@ router.get('/borrar/:idEmpleado', async (req, res) => {
 //Peticion al hacer submit en el formulario de creacion de empleado
 router.post('/crear', [
     check('nombre').notEmpty(),
-    check('dni').isLength(9),
+    check('dni', 'El DNI es obligatorio y debe tener un formato válido').exists().matches(/^[0-9]{8}[ABCDEFGHJKLMNPQRSTVWXYZ]$/, "i"),
     check('sexo').notEmpty(),
     check('fecha_nacimiento').notEmpty(),
     check('salario').notEmpty(),

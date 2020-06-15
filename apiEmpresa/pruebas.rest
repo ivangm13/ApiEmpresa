@@ -14,7 +14,7 @@ Content-Type: application/json
 
 {
     "nombre": "Ana",
-    "dni": "12345678A",
+    "dni": "03145245D",
     "sexo": "F",
     "fecha_nacimiento": "1985-05-11",
     "salario": 3500,
@@ -35,7 +35,6 @@ PUT http://localhost:3000/api/empleados/1
 Content-Type: application/json
 
 {
-    
     "nombre": "Ivan",
     "dni": "03145245H",
     "sexo": "M",

@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 
 router.post('/', [
     check('nombre', 'El nombre es obligatorio.').exists(),
-    check('dni', 'El DNI es obligatorio y debe tener un formato válido (00000000X)', '').exists().isLength({ min: 9, max: 9 }),
+    check('dni', 'El DNI es obligatorio y debe tener un formato válido').exists().matches(/^[0-9]{8}[ABCDEFGHJKLMNPQRSTVWXYZ]$/, "i"),
     check('fecha_nacimiento', 'La fecha de nacimiento es obligatoria y debe ser en formato YYYY-MM-DD').exists(),
     check('salario', 'El salario es obligatorio').exists(),
     check('cargo', 'El cargo es obligatorio').exists(),
